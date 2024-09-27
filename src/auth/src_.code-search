@@ -1,0 +1,39 @@
+# Query: src/
+
+18 results - 9 files
+
+src/auth/auth.module.ts:
+  5: import { UsersModule } from "../users/users.module";
+  6: import { AdminModule } from "../admin/admin.module";
+
+src/auth/auth.service.ts:
+   9: import { AdminService } from "../admin/admin.service";
+  10: import { CreateAdminDto } from "src/admin/dto/create-admin.dto";
+  11: import { Admin } from "src/admin/models/admin.model";
+
+src/event/event.module.ts:
+  6: import { SeatModule } from 'src/seat/seat.module';
+  7: import { FileModule } from 'src/file/file.module';
+
+src/event/event.service.ts:
+  6: import { SeatService } from 'src/seat/seat.service';
+  7: import { FileService } from 'src/file/file.service';
+
+src/ticket/ticket.service.ts:
+  6: import { TicketStatus } from 'src/ticket_status/models/ticket_status.model';
+  7: // import { TicketStatus } from 'src/ticket_status/models/ticket_status.model';
+  8: // import { Seat } from 'src/seat/models/seat.model';
+
+src/users/users.module.ts:
+  7: import { Roles } from 'src/roles/models/roles.model';
+  8: import { RolesModule } from 'src/roles/roles.module';
+
+src/venue_photo/venue_photo.module.ts:
+  6: import { FileModule } from 'src/file/file.module';
+
+src/venue_photo/venue_photo.service.ts:
+  6: import { FileService } from "src/file/file.service";
+
+src/venue_venue_type/models/venue_venue_type.model.ts:
+  3: import { Venue } from "src/venue/models/venue.model";
+  4: import { VenueType } from "src/venue_type/models/venue_type.model";
