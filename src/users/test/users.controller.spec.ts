@@ -70,5 +70,36 @@ describe("users controller", () => {
         })
     })
 
-    
+    describe("findOne user", () => {
+        describe("When findOne user", () => {
+            let user: User
+            beforeAll(async () => {
+                user = await userController.findOne("1");
+                console.log(user);
+            });
+            it("then it should get a single user", () => {
+                expect(usersService.findOne).toHaveBeenCalledWith(1)
+            })
+            test("then it shoult call usersService" , ()=>{
+                expect(user).toEqual(userStub())
+            })
+        })
+    })
+
+    describe("Remove user", () =>{
+        describe("When remove user", () => {
+            let message: any
+            beforeAll(async () => {
+                message = await userController.remove("1");
+                console.log(message);
+            });
+            it("then it should remove a single user", () => {
+                expect(usersService.remove).toHaveBeenCalledWith(1)
+            })
+            test("then it shoult call usersService" , ()=>{
+                expect(message).toBe("This action removes a #1 user")
+            })
+        })
+    })
+
 })
