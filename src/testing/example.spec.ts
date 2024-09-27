@@ -49,5 +49,3 @@ test('null', () => {
     expect(value).toBe(4);
     expect(value).toEqual(4);
   });
-
-  test("")
