@@ -27,8 +27,8 @@ export class UsersService {
     if (!role) {
       throw new BadRequestException("Role Not Found");
     }
-    await newUser.$set("roles", [role.id]);
-    await newUser.save();
+    // await newUser.$set("roles", [role.id]);
+    // await newUser.save();
     newUser.roles = [role];
     // const role1 = await this.roleModel.findOne({
     //   where: { value: createUserDto.role_value.toUpperCase() },
@@ -55,13 +55,19 @@ export class UsersService {
     return this.userModel.findOne({ where: { id }, include: { all: true } });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    await this.userModel.update(updateUserDto, { where: { id } });
+    return this.findOne(id);
   }
+  
 
-  remove(id: number) {
-    return {message:"o'chirildi"}
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) throw new NotFoundException("Foydalanuvchi topilmadi");
+    await this.userModel.destroy({ where: { id } });
+    return { message: "Foydalanuvchi o'chirildi" };
   }
+  
 
   async removeRole(addRemoveRoleDto: AddRemoveRoleDto) {
     const user = await this.userModel.findByPk(addRemoveRoleDto.userId);

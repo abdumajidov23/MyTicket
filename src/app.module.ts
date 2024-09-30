@@ -98,7 +98,7 @@ import { Cart } from "./cart/models/cart.model";
         Booking,
         Cart,
       ],
-      // logging: false,
+      logging: false,
       autoLoadModels: true,
       sync: { alter: true },
     }),

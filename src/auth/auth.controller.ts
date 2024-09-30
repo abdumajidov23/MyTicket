@@ -18,13 +18,17 @@ export class AuthController {
   })
   @Post("signup")
   async signUp(@Body() createAdminDto: CreateAdminDto) {
+    console.log("signUp successful:" , createAdminDto);
     return this.authService.signUp(createAdminDto);
   }
+  
+
 
   @ApiOperation({ summary: "Sign in for the signed up user" })
   @HttpCode(200)
   @Post("signin")
   async signIn(@Body() signInDto: SignInDto) {
+    console.log("signIn successful:" , signInDto);
     return this.authService.signIn(signInDto);
   }
 }

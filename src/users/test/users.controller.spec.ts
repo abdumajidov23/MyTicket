@@ -37,8 +37,8 @@ describe("users controller", () => {
             let createUserDto:CreateUserDto;
             beforeAll(async () => {
                 createUserDto = {
-                    name: "John Doe",
-                    email: "john.doe@example.com",
+                    name: "Alijon",
+                    email: "alijonabdumajidov@gmail.com",
                     password: "secret",
                     role_value: "admin",
                 };
